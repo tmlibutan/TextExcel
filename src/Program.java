@@ -1,21 +1,34 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Program {
+
+	static Scanner console = new Scanner(System.in);
 	// Marcus Libutan
 	// AP Computer Science
 	// Project 2 - TextExcel
 	// Extra credit so far:
-	// * none
-	static Scanner console = new Scanner(System.in);
-
+//	     * none so far :(
+	
 	public static void main(String[] args) {
+		
+		Spreadsheet sheet = new Spreadsheet();
+		boolean start = true;
+		String inputString = "";
 
-		System.out.println("Welcome to TextExcel!");
-		System.out.print("textexcel@command:~$ ");
-		String inputString = console.nextLine();
-		while (!inputString.equals("exit")) {
-			System.out.print("textexcel@command:~$ ");
-			inputString = console.nextLine();
+		while (start == true) {
+			System.out.println("Command/> ");
+			inputString = console.next();
+
+			if (inputString.equals("exit")) {
+				start = false;
+				System.out.println("Farewell! See you in the next milestone ^_^");
+			} else if (inputString.equalsIgnoreCase("print")) {
+				System.out.println();
+				System.out.println(sheet.printSheet());
+			}
 		}
+
+		console.close();
 	}
+
 }
