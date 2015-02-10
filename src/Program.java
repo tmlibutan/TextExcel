@@ -25,7 +25,9 @@ public class Program {
 			} else if (inputString.equalsIgnoreCase("print")) {
 				System.out.println();
 				System.out.println(sheet.printSheet());
-			}
+			} else if (inputString.equalsIgnoreCase("print") || (inputString.equals("exit");
+				System.out.println("This is a test case. This may or may not work");
+			
 		}
 
 		console.close();
