@@ -1,9 +1,26 @@
 public class Spreadsheet {
 
-	private int columns = 8;
 	private int rows = 11;
-	private Cell[][] sheet = new Cell[rows][columns];
+	private int columns = 8;
 	private char[] alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
+	private Cell[][] sheet = new Cell[rows][columns];
+
+	public String printSheet() {
+		String returnString = "";
+
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				String cellString = this.sheet[i][j].toShort();
+				cellString += "|";
+				returnString += cellString;
+			}
+			returnString += "\n";
+			returnString += "------------+------------+------------+------------+------------+------------+------------+------------+";
+			returnString += "\n";
+		}
+
+		return returnString;
+	}
 
 	public Spreadsheet() {
 		for (int i = 0; i < rows; i++) {
@@ -32,24 +49,6 @@ public class Spreadsheet {
 			}
 		}
 	}
-
-	public String printSheet() {
-		String returnString = "";
-
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
-				String cellString = this.sheet[i][j].toShort();
-				cellString += "|";
-				returnString += cellString;
-			}
-			returnString += "\n";
-			returnString += "------------+------------+------------+------------+------------+------------+------------+------------+";
-			returnString += "\n";
-		}
-
-		return returnString;
-	}
-
 	public void setValueAt(String label, String input) {
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
@@ -58,20 +57,5 @@ public class Spreadsheet {
 				}
 			}
 		}
-	}
-
-	public String getValueAt(String str) {
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
-				if (this.sheet[i][j].getPosition().equals(str)) {
-					if (this.sheet[i][j].toFull() != null) {
-						return this.sheet[i][j].toFull();
-					} else {
-						return "<empty>";
-					}
-				}
-			}
-		}
-		return "<ERROR: NO CELL " + str + ">";
 	}
 }
