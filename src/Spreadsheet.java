@@ -1,4 +1,5 @@
-public class Spreadsheet {
+import persistence.*;
+public class Spreadsheet implements Savable {
 
 	private int rows = 11;
 	private int columns = 8;
@@ -57,5 +58,16 @@ public class Spreadsheet {
 				}
 			}
 		}
+	}
+
+	@Override
+	public String[] getSaveData() {
+		
+		return null;
+	}
+
+	@Override
+	public void loadFrom(String[] saveData) {
+		
 	}
 }
