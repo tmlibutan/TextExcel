@@ -1,4 +1,5 @@
 import persistence.*;
+
 public class Spreadsheet implements Savable {
 
 	private int rows = 11;
@@ -6,7 +7,18 @@ public class Spreadsheet implements Savable {
 	private char[] alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
 	private Cell[][] sheet = new Cell[rows][columns];
 
+	/**
+	 * Above this are the values for the spreadsheet. A-G are the labeled
+	 * X-Axis. We need 11 rows and 8 columns as we have a empty cell on the very
+	 * first cell. Used a two-dimensional array to represent the row and columns
+	 */
+
 	public String printSheet() {
+		/**
+		 * printSheet hands all the values above. This method uses its values to
+		 * create parts of the spreadsheet. returnString creates the separation
+		 * for each cell and constructs the spreadsheet
+		 */
 		String returnString = "";
 
 		for (int i = 0; i < rows; i++) {
@@ -50,7 +62,13 @@ public class Spreadsheet implements Savable {
 			}
 		}
 	}
+
 	public void setValueAt(String label, String input) {
+		/**
+		 * This method handles where the input should be put in (e.g A10). This
+		 * calls to getPosition to find out where the cell is and then puts in
+		 * the input in that cell.
+		 */
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
 				if (this.sheet[i][j].getPosition().equals(label)) {
@@ -60,14 +78,20 @@ public class Spreadsheet implements Savable {
 		}
 	}
 
+	/**
+	 * Below this are the load + save methods. This will load a txt file that is
+	 * in the root of the TextExcel folder. This will also save a file to the
+	 * same location
+	 */
+
 	@Override
 	public String[] getSaveData() {
-		
+
 		return null;
 	}
 
 	@Override
 	public void loadFrom(String[] saveData) {
-		
+
 	}
 }
