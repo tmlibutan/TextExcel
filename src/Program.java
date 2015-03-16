@@ -8,13 +8,11 @@ public class Program {
 	 // Extra credit
 	// Extra credit so far:
 	// * none so far
-
 	public static void main(String[] args) { // User input
 		System.out.println("Welcome to TextExcel!");
 		boolean start = true;
 		Spreadsheet sheet = new Spreadsheet();
 		String inputString = "";
-
 		/**
 		 * Below this, the program will get input and determine if the program
 		 * is started or terminated. This also handles the clear, exit, and
@@ -33,7 +31,7 @@ public class Program {
 				sheet = clear;
 				/**
 				 * New Spreadsheet "clear" is created completely making a new
-				 * spreadsheet
+				 * spreadsheet.
 				 */
 			} else if (inputString.equals("exit")) {
 				start = false;
@@ -51,6 +49,9 @@ public class Program {
 				 */
 			} else if (inputString.indexOf('=') != -1) {
 				if (inputString.toLowerCase().contains("null")) {
+					/**
+					 * Handles errors :?
+					 */
 					System.out.println("Error_NoCell/>" + inputString.substring(0, inputString.indexOf('=') - 1) + ">");
 				} else {
 					String cellPos = inputString.substring(0, inputString.indexOf('=') - 1);
