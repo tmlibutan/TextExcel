@@ -10,14 +10,13 @@ public class Spreadsheet implements Savable {
 	/**
 	 * Above this are the values for the spreadsheet. A-G are the labeled
 	 * X-Axis. We need 11 rows and 8 columns as we have a empty cell on the very
-	 * first cell. Used a two-dimensional array to represent the row and columns
+	 * first cell. Used a two-dimensional array to represent the row and columns.
 	 */
-
 	public String printSheet() {
 		/**
 		 * printSheet hands all the values above. This method uses its values to
 		 * create parts of the spreadsheet. returnString creates the separation
-		 * for each cell and constructs the spreadsheet
+		 * for each cell and constructs the spreadsheet.
 		 */
 		String returnString = "";
 
@@ -67,7 +66,7 @@ public class Spreadsheet implements Savable {
 		/**
 		 * This method handles where the input should be put in (e.g A10). This
 		 * calls to getPosition to find out where the cell is and then puts in
-		 * the input in that cell.
+		 * the input in that cell. 
 		 */
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
@@ -76,6 +75,7 @@ public class Spreadsheet implements Savable {
 				}
 			}
 		}
+
 	}
 
 	/**
@@ -83,7 +83,6 @@ public class Spreadsheet implements Savable {
 	 * in the root of the TextExcel folder. This will also save a file to the
 	 * same location
 	 */
-
 	@Override
 	public String[] getSaveData() {
 
