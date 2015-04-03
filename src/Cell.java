@@ -1,44 +1,56 @@
 public class Cell {
 
-	private String shortValue;
-	private String fullValue;
-	private String pos;
+	String shortValue = "            ";
+	String fullValue = "            ";
+	String pos;
 
-	public Cell() {
-		this.shortValue = "            ";
+	public String toShort() {
+		return shortValue;
 	}
 
 	public String toFull() {
-		return this.fullValue;
+		return fullValue;
 	}
 
-	public String toShort() {
-		return this.shortValue;
-	}
+	public void setValue(String fullVal) {
+		fullValue = fullVal;
 
-	public void setValue(String str) {
-		this.fullValue = str;
-
-		if (str.length() > 12) {
-			str = str.substring(0, 11) + ">";
+		if (fullVal.length() > 12) {
+			fullVal = fullVal.substring(0, 11) + ">";
 		}
 
-		this.shortValue = "";
-		for (int k = 1; k <= ((12 - str.length()) / 2); k++) {
-			this.shortValue += " ";
+		shortValue = "";
+		for (int k = 1; k <= ((12 - fullVal.length()) / 2); k++) {
+			shortValue += " ";
 		}
-		this.shortValue += str;
-		while (this.shortValue.length() < 12) {
-			this.shortValue += " ";
+		shortValue += fullVal;
+		while (shortValue.length() < 12) {
+			shortValue += " ";
 		}
 	}
 
-	public String getPosition() {
-		return this.pos;
+	public void setValue(String fullVal, String shortVal) {
+		fullValue = fullVal;
+
+		if (shortVal.length() > 12) {
+			shortVal = shortVal.substring(0, 11) + ">";
+		}
+
+		shortValue = "";
+		for (int k = 1; k <= ((12 - shortVal.length()) / 2); k++) {
+			shortValue += " ";
+		}
+		shortValue += shortVal;
+		while (shortValue.length() < 12) {
+			shortValue += " ";
+		}
 	}
 
 	public void setPosition(String str) {
-		this.pos = str;
+		pos = str;
 	}
 
+	public String getPos() {
+		return pos;
+	}
 }
